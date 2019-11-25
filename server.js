@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const https = require('https');
 const fs = require('./fs');
+const process = require('./process');
 
 const app = express();
 
@@ -17,10 +18,10 @@ axios.get('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=' 
 
     fs.saveFile(result);
 
-    var number = result.data.numero_casas;
-    var ciphertext = result.data.cifrado;
+    var number = result.numero_casas;
+    var ciphertext = result.cifrado;
 
-    // process to decrypt
+    result.decifrado = process.decrypt(ciphertext);
 
     // resumo criptografico - SHA1
 })
