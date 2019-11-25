@@ -1,7 +1,5 @@
 const fs = require('fs');
 
-const directory = '/codenationResult';
-
 module.exports = {
     saveFile: function(data){
         fs.writeFile("result.txt", JSON.stringify(data), function(err){
