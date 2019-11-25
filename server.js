@@ -14,7 +14,15 @@ const agent = new https.Agent({
 axios.get('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=' + myToken, { httpsAgent: agent })
 .then(response => {
     var result = response.data;
+
     fs.saveFile(result);
+
+    var number = result.data.numero_casas;
+    var ciphertext = result.data.cifrado;
+
+    // process to decrypt
+
+    // resumo criptografico - SHA1
 })
 .catch(error => {
     console.log(error);
