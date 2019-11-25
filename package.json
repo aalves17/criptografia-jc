@@ -1,0 +1,8 @@
+{
+  "name": "criptografia-jc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aalves17/criptografia-jc.git",
+  "author": "alessandra <alessandraamontanher@gmail.com>",
+  "license": "MIT"
+}
