@@ -1,6 +1,6 @@
 module.exports = {
     decrypt: function(str, number){
-        var strDecrypted = '';
+        var strDecrypted = [];
         var spaceASCIICode = 32;
 
         for(var i=0; i < str.length; i++){
@@ -8,12 +8,14 @@ module.exports = {
 
             if(actualASCIICode !== spaceASCIICode){
                 let newASCIICode = actualASCIICode - number;
-                strDecrypted += str.charAt(newASCIICode);
+                strDecrypted.push(String.fromCharCode(newASCIICode));
             }else{
-                strDecrypted += str;
+                strDecrypted.push(" ");
             }
+
+            console.log(strDecrypted);
         }
-        console.log(strDecrypted);
+
         return strDecrypted;
     },
     sha1: function(str){
