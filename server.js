@@ -21,7 +21,7 @@ axios.get('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=' 
     var number = result.numero_casas;
     var ciphertext = result.cifrado;
 
-    result.decifrado = process.decrypt(ciphertext);
+    result.decifrado = process.decrypt(ciphertext, number);
 
     // resumo criptografico - SHA1
 })
