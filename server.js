@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const https = require('https');
+const fs = require('./fs');
 
 const app = express();
 
@@ -13,7 +14,7 @@ const agent = new https.Agent({
 axios.get('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=' + myToken, { httpsAgent: agent })
 .then(response => {
     var result = response.data;
-    console.log(result);
+    fs.saveFile(result);
 })
 .catch(error => {
     console.log(error);
