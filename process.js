@@ -1,22 +1,21 @@
 module.exports = {
     decrypt: function(str, number){
         var strDecrypted = [];
-        var spaceASCIICode = 32;
 
         for(var i=0; i < str.length; i++){
-            let actualASCIICode = str.charCodeAt(i);
+            let isLetter = str.charAt(i).match(/[A-Za-z]/i);
 
-            if(actualASCIICode !== spaceASCIICode){
+            if(isLetter){
+                let actualASCIICode = str.charCodeAt(i);
                 let newASCIICode = actualASCIICode - number;
                 strDecrypted.push(String.fromCharCode(newASCIICode));
             }else{
-                strDecrypted.push(" ");
+                strDecrypted.push(str.charAt(i));
             }
 
-            console.log(strDecrypted);
         }
 
-        return strDecrypted;
+        return strDecrypted.join("");
     },
     sha1: function(str){
 
