@@ -22,7 +22,7 @@ axios.get('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=' 
     var ciphertext = result.cifrado;
 
     result.decifrado = process.decrypt(ciphertext, number);
-
+    result.resumo_criptografico = process.sha1(result.decifrado);
     // resumo criptografico - SHA1
 })
 .catch(error => {

@@ -1,3 +1,5 @@
+const sha1 = require('crypto');
+
 module.exports = {
     decrypt: function(str, number){
         var strDecrypted = [];
@@ -18,6 +20,8 @@ module.exports = {
         return strDecrypted.join("");
     },
     sha1: function(str){
-
+        const shasone = sha1.createHash('sha1');
+        shasone.update(str);
+        return shasone.digest('hex');
     }
 }
